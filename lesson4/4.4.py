@@ -72,6 +72,14 @@ def main():
                 is_double = True
         if not is_double:
             res.append(el)
+    print(res)
+####################ПЯТЫЙ СПОСОБ###########################################
+    counts = {}
+    for el in in_list:
+        if el not in counts:
+            counts[el] = 0
+        counts[el] += 1
+    res = [el for el in counts.keys() if counts[el] ==1]
 
     print(res)
 """Время выполнения: 

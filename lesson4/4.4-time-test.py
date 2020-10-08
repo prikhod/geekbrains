@@ -104,3 +104,18 @@ for i, el in enumerate(in_list):
 '''
 elapsed_time = timeit.timeit(code_to_test, number=100) / 100
 print(elapsed_time)
+
+
+code_to_test = '''
+import random
+in_list = [random.randint(0, 1000) for i in range(1, 1000)]
+counts = {}
+for el in in_list:
+    if el not in counts:
+        counts[el] = 0
+    counts[el] += 1
+res = [el for el in counts.keys() if counts[el] == 1]
+
+'''
+elapsed_time = timeit.timeit(code_to_test, number=100) / 100
+print(elapsed_time)
