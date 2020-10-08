@@ -19,7 +19,7 @@ def gen(start, stop):
         if el > stop:
             break
         else:
-            print(el)
+            yield el
 
 
 def replic_list(in_list, multiplier):
@@ -31,14 +31,14 @@ def replic_list(in_list, multiplier):
     for el in cycle(in_list):
         if с > len(in_list) * multiplier - 1:
             break
-        print(el)
+        yield el
         с += 1
 
 
 def main():
-    gen(6, 20)
+    print(list(gen(6, 20)))
     test_line = 'ASDFGHJK'
-    replic_list(test_line, 5)
+    print(list(replic_list(test_line, 5)))
 
 if __name__ == '__main__':
     main()

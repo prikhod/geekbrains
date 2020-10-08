@@ -31,7 +31,7 @@ print(elapsed_time)
 
 code_to_test = '''
 import random
-in_list = [random.randint(0, 10000) for i in range(1, 10000)]
+in_list = [random.randint(0, 1000) for i in range(1, 1000)]
 res = [el for el in in_list if in_list.count(el) == 1]
 '''
 elapsed_time = timeit.timeit(code_to_test, number=100) / 100
@@ -40,7 +40,7 @@ print(elapsed_time)
 
 code_to_test = """
 import random
-in_list = [random.randint(0, 10000) for i in range(1, 10000)]
+in_list = [random.randint(0, 1000) for i in range(1, 1000)]
 no_double_indexes = [el for el in range(0, len(in_list))]  # список индексов
 i = 0
 len_change = False
@@ -67,7 +67,7 @@ print(elapsed_time)
 
 code_to_test = '''
 import random
-in_list = [random.randint(0, 10000) for i in range(1, 10000)]
+in_list = [random.randint(0, 1000) for i in range(1, 1000)]
 i = 0
 is_double = False
 res = []
@@ -87,3 +87,20 @@ while i < len_list:
 elapsed_time = timeit.timeit(code_to_test, number=100) / 100
 print(elapsed_time)
 
+code_to_test = '''
+import random
+in_list = [random.randint(0, 1000) for i in range(1, 1000)]
+i = 0
+res = []
+len_list = len(in_list)
+for i, el in enumerate(in_list):
+    is_double = False
+    for i_in, el_in in enumerate(in_list):
+        if el_in == el and i != i_in:
+            is_double = True
+    if not is_double:
+        res.append(el)
+
+'''
+elapsed_time = timeit.timeit(code_to_test, number=100) / 100
+print(elapsed_time)

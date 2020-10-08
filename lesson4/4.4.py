@@ -61,10 +61,24 @@ def main():
 
     print(res)
 
+####################ЧЕТВЕРТЫЙ СПОСОБ###########################################
+    i = 0
+    res = []
+    len_list = len(in_list)
+    for i, el in enumerate(in_list):
+        is_double = False
+        for i_in, el_in in enumerate(in_list):
+            if el_in == el and i != i_in:
+                is_double = True
+        if not is_double:
+            res.append(el)
+
+    print(res)
 """Время выполнения: 
     0.012377024989982601 с count
     0.028858142269891685
     0.07359166106994962
+    0.03938548205005645
 """
 
 
